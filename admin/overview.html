@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview | Admin</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main class="app">
+    <section class="dashboard">
+      <aside class="sidebar card" id="adminSidebar">
+        <div class="brand-block">
+          <p class="brand-caption">Control Center</p>
+          <h2 class="brand-title">Muthu Gadgets</h2>
+        </div>
+
+        <nav class="sidebar-tabs" aria-label="Admin sections">
+          <a href="./overview.html" class="nav-link active">Overview</a>
+          <a href="./categories.html" class="nav-link">Category Manager</a>
+          <a href="./products.html" class="nav-link">Product Manager</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p class="muted sidebar-user" id="adminIdentity"></p>
+          <button id="logoutBtn" class="btn btn-outline full-btn" type="button">Logout</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-content">
+        <header class="dashboard-header card">
+          <div>
+            <p class="header-kicker">Admin Workspace</p>
+            <h1>Dashboard Overview</h1>
+            <p class="muted compact">Track product catalog status at a glance.</p>
+          </div>
+          <button class="btn btn-outline admin-menu-toggle" id="adminMenuToggle" type="button" aria-expanded="false" aria-controls="adminSidebar">Menu</button>
+        </header>
+
+        <section class="tab-panel">
+          <div class="overview-grid">
+            <article class="card stat-card">
+              <p>Total Products</p>
+              <h3 id="statProducts">0</h3>
+            </article>
+            <article class="card stat-card">
+              <p>Active Products</p>
+              <h3 id="statActiveProducts">0</h3>
+            </article>
+            <article class="card stat-card">
+              <p>Active Categories</p>
+              <h3 id="statActiveCategories">0</h3>
+            </article>
+          </div>
+
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./js/common.js"></script>
+  <script type="module" src="./js/overview.js"></script>
+</body>
+
+</html>

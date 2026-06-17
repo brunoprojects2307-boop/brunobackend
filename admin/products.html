@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Admin</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main class="app">
+    <section class="dashboard">
+      <aside class="sidebar card" id="adminSidebar">
+        <div class="brand-block">
+          <p class="brand-caption">Control Center</p>
+          <h2 class="brand-title">Muthu Gadgets</h2>
+        </div>
+
+        <nav class="sidebar-tabs" aria-label="Admin sections">
+          <a href="./overview.html" class="nav-link">Overview</a>
+          <a href="./categories.html" class="nav-link">Category Manager</a>
+          <a href="./products.html" class="nav-link active">Product Manager</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p class="muted sidebar-user" id="adminIdentity"></p>
+          <button id="logoutBtn" class="btn btn-outline full-btn" type="button">Logout</button>
+        </div>
+      </aside>
+
+      <div class="dashboard-content">
+        <header class="dashboard-header card">
+          <div>
+            <p class="header-kicker">Catalog Control</p>
+            <h1>Product Manager</h1>
+            <p class="muted compact">Create, update, and maintain your storefront products.</p>
+          </div>
+          <button class="btn btn-outline admin-menu-toggle" id="adminMenuToggle" type="button" aria-expanded="false" aria-controls="adminSidebar">Menu</button>
+        </header>
+
+        <section class="panel-layout panel-layout-vertical">
+          <section class="card form-card">
+            <div class="panel-title-row">
+              <h2>Product Form</h2>
+              <button id="refreshProducts" class="btn btn-outline" type="button">Refresh</button>
+            </div>
+
+            <form id="productForm" class="form-grid">
+              <input type="hidden" id="productId">
+              <input type="hidden" id="productCurrentImage">
+              <input type="hidden" id="productCurrentImages">
+
+              <label>Name<input type="text" id="productName" required></label>
+              <label>Price<input type="number" id="productPrice" min="1" step="0.01" required></label>
+              <label>Category
+                <select id="productCategory" required>
+                  <option value="">Select category</option>
+                </select>
+              </label>
+              <label class="full checkbox-label">
+                <input type="checkbox" id="productOutOfStock">
+                Mark as out of stock
+              </label>
+
+              <label class="full">
+                Product Images
+                <input type="file" id="productImages" accept="image/*" multiple>
+                <small class="muted-inline">Select multiple images at once. The first image is used as primary.</small>
+              </label>
+              <div id="productImagesPreview" class="image-preview-row full"></div>
+
+              <label class="full">Description<textarea id="productDescription" rows="4"></textarea></label>
+              <label class="full checkbox-label">
+                <input type="checkbox" id="productActive" checked>
+                Active
+              </label>
+
+              <div class="full actions-row">
+                <button type="button" id="previewProductBtn" class="btn btn-outline">Preview</button>
+                <button type="submit" class="btn btn-primary">Save Product</button>
+                <button type="button" id="clearProductForm" class="btn btn-outline">Clear</button>
+              </div>
+            </form>
+
+            <p id="productMessage" class="message"></p>
+          </section>
+
+          <section class="card list-card">
+            <div class="panel-title-row">
+              <h2>Product Catalog</h2>
+            </div>
+            <div class="catalog-toolbar">
+              <input type="search" id="productSearch" placeholder="Search by name or category">
+            </div>
+            <div id="productsTableBody" class="product-grid-admin"></div>
+          </section>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="productPreviewModal" class="modal-overlay" aria-labelledby="previewTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="previewTitle">Product Preview</h2>
+        <button id="closePreviewBtn" type="button" class="btn btn-outline">Close</button>
+      </div>
+
+      <article class="preview-product-card">
+        <div class="product-detail-grid preview-detail-grid">
+          <div class="product-gallery preview-gallery">
+            <div class="main-image-wrapper preview-main-image-wrapper">
+              <img id="previewProductImage" src="" alt="Product preview" class="main-image preview-main-image">
+            </div>
+            <div id="previewProductThumbs" class="thumbnail-grid preview-thumbnail-grid"></div>
+          </div>
+
+          <div class="product-detail-info preview-detail-info">
+            <h1 id="previewProductName">Product name preview</h1>
+            <p id="previewProductPrice" class="product-detail-price"></p>
+
+            <div class="product-badges preview-badges">
+              <div class="badge" id="previewProductCategory">Category</div>
+              <div class="badge" id="previewProductStock">In Stock</div>
+              <div class="badge" id="previewProductActive">Active</div>
+            </div>
+
+            <div class="product-description preview-description-block">
+              <h3>Product Description</h3>
+              <p id="previewProductDescription"></p>
+            </div>
+
+            <div class="product-detail-actions preview-actions">
+              <button type="button" class="btn btn-outline">Add to Cart</button>
+              <button type="button" class="btn btn-primary">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <p class="muted compact">This is how the product details will appear after saving.</p>
+    </div>
+  </dialog>
+
+  <script type="module" src="./js/common.js"></script>
+  <script type="module" src="./js/products.js"></script>
+</body>
+
+</html>

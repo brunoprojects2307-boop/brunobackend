@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Muthu Gadgets</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <main class="auth-shell">
+    <section class="card auth-card">
+      <p class="header-kicker">Admin Access</p>
+      <h1>Sign in to Dashboard</h1>
+      <p class="muted">Secure access for product management.</p>
+      <form id="loginForm" class="stack">
+        <label>
+          Email
+          <input type="email" id="email" required>
+        </label>
+        <label>
+          Password
+          <input type="password" id="password" required>
+        </label>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+      <p id="loginMessage" class="message"></p>
+    </section>
+  </main>
+
+  <script type="module" src="./js/common.js"></script>
+  <script type="module" src="./js/login.js"></script>
+</body>
+
+</html>
